@@ -1,0 +1,13 @@
+# action.yml
+name: 'GitHub Rank Action'
+description: 'A GitHub Action to get the rank of a user from commits.top'
+inputs:
+  username:  # id of input
+    description: 'Who to get the rank of'
+    required: true
+    default: 'octocat'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.username }}
