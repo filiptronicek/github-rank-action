@@ -11,3 +11,4 @@ resJson = json.loads(responce.text)
 for user in resJson['users']:
     if user['user']['username'] == argv[1]:
         write(user['rank'])
+        print(user['rank'])
