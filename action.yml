@@ -11,5 +11,6 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.username }}
-icon: bar-chart-2
-color: gray-dark
+branding:
+  icon: bar-chart-2
+  color: gray-dark
