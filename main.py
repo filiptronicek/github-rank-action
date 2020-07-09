@@ -1,4 +1,5 @@
 import requests, json
+from modify import write
 
 country = "czech_republic"
 url = f"https://top-ghusers.vercel.app/api?c={country}"
@@ -8,4 +9,4 @@ resJson = json.loads(responce.text)
 
 for user in resJson['users']:
     if user['user']['username'] == 'filiptronicek':
-        print("Got to him!")
+        write(user['rank'])
