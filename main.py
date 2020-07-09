@@ -1,4 +1,5 @@
 import requests, json
+from sys import argv
 from modify import write
 
 country = "czech_republic"
@@ -8,5 +9,5 @@ responce = requests.get(url)
 resJson = json.loads(responce.text)
 
 for user in resJson['users']:
-    if user['user']['username'] == 'filiptronicek':
+    if user['user']['username'] == argv[1]:
         write(user['rank'])
