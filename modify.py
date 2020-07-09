@@ -1,7 +1,7 @@
 import re
 
 filename = "README.md"
-patt = '<a.*class="ranking".*></a>'
+patt = r'<a.*class="ranking".*>[\d]+?</a>'
 
 def write(rank):
     with open(filename) as f:
@@ -11,7 +11,7 @@ def write(rank):
     for c in content:
         if re.search(patt, c):
             splitToModify = (c.split(re.split(patt, c)[0])[1])
-            modify = splitToModify.replace("><",f">{str(rank)}<")
+            modify = re.sub(r">[\d]+?<",f">{str(rank)}<", splitToModify)
             replaced += c.split(splitToModify)[0] + modify + c.split(splitToModify)[1]
         else:
             replaced += c
